@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Clean Blog - Start Bootstrap Theme</title>
+  <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -20,19 +20,21 @@
 
   <!-- Custom styles for this template -->
   <link href="{{ asset('frontend/css/clean-blog.min.css')}}" rel="stylesheet">
+  @section('bg-img')
 
+{{--   @yield('head'); --}}
 </head>
 
 <body>
 
   <!-- Navigation -->
-@include('layouts.frontend.header');
+@include('layouts.frontend.partial.header');
 
   <!-- Main Content -->
- 
+ @yield('content');
 
   <!-- Footer -->
-  @include('layouts.frontend.footer');
+  @include('layouts.frontend.partial.footer');
 
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('frontend/vendor/jquery/jquery.min.js')}}"></script>

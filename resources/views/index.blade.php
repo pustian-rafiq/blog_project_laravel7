@@ -3,6 +3,11 @@
 
 @section('title','Home')
 
+{{-- changes home/index page background image,title, sub-title dynalically --}}
+@section('bg-img', asset('frontend/img/home-bg.jpg'))
+@section('heading', "Teslacoder Team")
+@section('sub-heading',"We are awesome team for building your website")
+
 @push('css')
  
 @endpush
@@ -12,7 +17,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-          <a href="post.html">
+          <a href="{{ route('post') }}">
             <h2 class="post-title">
               Man must explore, and this is exploration at its greatest
             </h2>
