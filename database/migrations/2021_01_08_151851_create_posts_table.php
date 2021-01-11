@@ -16,14 +16,14 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title',250);
-            $table->string('sub-title',100);
-            $table->string('slug',100);
+            $table->string('sub_title',100);
+            $table->string('slug',100)->unique();
             $table->text('body');
-            $table->boolean('status');
-            $table->integer('posted_by');
-            $table->string('image');
-            $table->integer('like');
-            $table->integer('dislike');
+            $table->boolean('status')->default(false);
+            $table->integer('posted_by')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('like')->nullable();
+            $table->integer('dislike')->nullable();
             $table->timestamps();
         });
     }

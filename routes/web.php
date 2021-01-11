@@ -1,24 +1,37 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//User Route
+ 
+Route::group(['namespace' => 'User'], function(){
+
+Route::get('/','HomeController@index')->name('post');
+Route::get('post','PostController@index');
+});
 
  
-Route::get('/', function () {
-    return view('index');//index = blog page
-});
-
-Route::get('/post', function () {
-    return view('post'); 
-})->name('post');
-
 //Admin Route
 
-Route::get('/backend/home', function () {
-    return view('layouts.backend.index'); 
-});
+Route::group(['namespace' => 'Admin'], function(){
+
+	Route::get('admin/home','HomeController@index')->name('admin.index');
+
+
+//User Route
+	Route::resource('admin/user','UserController');
+//Post Route
+	Route::resource('admin/post','PostController');
+	 
+ //Category Route
+	Route::resource('admin/category','CategoryController');
+//Tag Route
+	Route::resource('admin/tag','TagController') ;
+ 
+	});
+	
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+ 
 //Route::get('/post', 'HomeController@index')->name('post');
