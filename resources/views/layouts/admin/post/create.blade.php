@@ -1,10 +1,15 @@
 @extends('layouts.admin.app')
 
+@push('css')
+ 
+
+@endpush
 @section('main-content')
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
   <section class="content-header">
      <div class="container-fluid">
+      
       @if(count($errors) > 0)
         @foreach($errors->all() as $error)
             <p class="alert alert-danger">{{ $error }}</p>
@@ -16,14 +21,14 @@
             <h1>Add New Post</h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
+           {{--  <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Post Form</li>
-            </ol>
+            </ol> --}}
+            <a href="{{ route('post.index') }}" class="btn btn-success float-right">Back</a>
+
           </div>
         </div>
-
-  
         
  <form role="form" action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
   @csrf
@@ -78,7 +83,7 @@
             <div class="card-body pad">
               <div class="mb-3">
                 <textarea name="body" class="textarea" placeholder="Text" 
-                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                          style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                           	
                  </textarea>
               </div>
@@ -89,7 +94,7 @@
         </div>
   
   <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Add Post</button>
       </div>
   </div>
   </form>
@@ -101,3 +106,7 @@
   </div>
   <!-- /.content-wrapper -->
 @endsection
+@push('js')
+<script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script>
+
+@endpush

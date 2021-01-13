@@ -13,12 +13,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Category Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Category Page</li>
             </ol>
           </div>
         </div>
@@ -32,7 +32,7 @@
           <div class="col-12">
        <div class="card">
               <div class="card-header">
-                <a href="{{ route('post.create') }}" class="btn btn-success">Add New Post</a>
+                <a href="{{ route('category.create') }}" class="btn btn-success">Add New Category</a>
 
               </div>
               <!-- /.card-header -->
@@ -41,23 +41,22 @@
                   <thead>
                   <tr>
                     <th>SL No.</th>
-                    <th>Title</th>
-                    <th>Sub Title</th>
-                    <th>Slug</th>
+                    <th>Category Name</th>
+                    <th>Category Slug</th>
                     <th>Action</th>
+                    
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach($posts as $key=> $post)
+                   @foreach($categories as $key=> $category)
                    <tr>
                       <td>{{ $key+1 }}</td>
-                      <td>{{ $post->title }}</td>
-                      <td>{{ $post->sub_title }}</td>
-                      <td>{{ $post->slug }}</td>
+                      <td>{{ $category->name }}</td>
+                      <td>{{ $category->name }}</td>
                       <td>
-                         <a class="btn btn-success" href="{{ $post->id }} ">Edit</a>
+                         <a class="btn btn-success" href="{{ $category->id }} ">Edit</a>
                           
-                           <a class="btn btn-danger" href="{{ $post->id }}">Delete</a></td>
+                           <a class="btn btn-danger" href="{{ $category->id }}">Delete</a></td>
                       </td>
                       
                   </tr>
@@ -66,9 +65,8 @@
                   <tfoot>
                   <tr>
                     <th>SL No.</th>
-                    <th>Title</th>
-                    <th>Sub Title</th>
-                    <th>Slug</th>
+                    <th>Category Name</th>
+                    <th>Category Slug</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

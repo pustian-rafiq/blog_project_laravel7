@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Model\User\Tag;
 class TagController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('layouts.admin.tag.index');
+        $tags = Tag::all();
+        return view('layouts.admin.tag.index',compact('tags'));
        
     }
 
@@ -36,7 +37,21 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request,
+            [
+                'name'     => 'required',
+                'slug' => 'required',
+         
+            ]);
+
+        $tag = new Tag;
+        $tag->name = $request->name;
+        $tag->slug = $request->slug;
+ 
+
+        $tag->save();
+        
+        return redirect()->route('tag.index');
     }
 
     /**

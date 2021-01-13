@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('layouts.admin.post.create');
+        $posts = Post::all();
+        return view('layouts.admin.post.index',compact('posts'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.admin.post.create');
     }
 
     /**
@@ -52,9 +53,9 @@ class PostController extends Controller
         $post->body = $request->body;
 
         $post->save();
-
+        
         return redirect()->route('post.index');
-        return $request->all();
+        
     }
 
     /**

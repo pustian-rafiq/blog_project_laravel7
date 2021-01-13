@@ -2,6 +2,7 @@
 <html>
 <head>
 	@include('layouts.admin.partial.head');
+	@stack('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
  <div class="wrapper">
@@ -45,8 +46,10 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script>
+{{-- <script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script> --}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('backend/dist/js/demo.js') }}"></script> 
+
+@stack('js')
 </body>
 </html>
