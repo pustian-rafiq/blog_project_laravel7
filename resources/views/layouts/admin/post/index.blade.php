@@ -55,9 +55,34 @@
                       <td>{{ $post->sub_title }}</td>
                       <td>{{ $post->slug }}</td>
                       <td>
-                         <a class="btn btn-success" href="{{ $post->id }} ">Edit</a>
-                          
-                           <a class="btn btn-danger" href="{{ $post->id }}">Delete</a></td>
+                        <a class="btn btn-success" href="{{ $post->id }}" title="view">
+                            <i class="nav-icon fas fa-eye" ></i></a>
+
+                        <a class="btn btn-primary" href="{{route('post.edit',$post->id) }}" title="edit">
+                           <i class="nav-icon fas fa-edit"></i></a>
+                           
+                           <form id="delete-form-{{ $post->id }}" method="post" action="{{ route('post.destroy',$post->id) }}" style="display: none">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                              </form>
+
+                        <a href="" class="btn btn-danger" title="delete"
+
+                        onclick="
+                          if(confirm('Are you sure to Delete?")) {
+                          event.preventDefault();
+                          window.getElementById('delete-form-{{ $post->id }}').submit();
+                        }else{
+                        event.preventDefault();
+                      } 
+                      "> <i class="nav-icon fas fa-trash"></i>
+                    </a> 
+
+                  {{-- <form id="delete-form-{{ $post->id }}" action="{{ route('post.destroy',$post->id) }}" method="POST" style="display: none;">
+                      @csrf
+                      @method('DELETE')
+                 </form> --}}
+
                       </td>
                       
                   </tr>

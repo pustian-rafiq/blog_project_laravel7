@@ -49,6 +49,7 @@
 {{-- <script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script> --}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('backend/dist/js/demo.js') }}"></script> 
+<script src="https://kit.fontawesome.com/97f4dbfedd.js" crossorigin="anonymous"></script>
 
 @stack('js')
 </body>

@@ -54,9 +54,11 @@
                       <td>{{ $tag->name }}</td>
                       <td>{{ $tag->slug }}</td>
                       <td> 
-                          <a class="btn btn-success" href="{{ $tag->id }} ">Edit</a>
-                          
-                           <a class="btn btn-danger" href="{{ $tag->id }}">Delete</a></td>
+                        <a class="btn btn-success" href="{{ $tag->id }} " title="edit">
+                        <i class="nav-icon fas fa-edit" ></i></a>
+                        
+                         <a class="btn btn-danger" href="{{ $tag->id }}" title="delete">
+                         <i class="nav-icon fas fa-trash" ></i></a></td>
 
                       </td>
                   </tr>

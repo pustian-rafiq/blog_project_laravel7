@@ -54,9 +54,10 @@
                       <td>{{ $category->name }}</td>
                       <td>{{ $category->name }}</td>
                       <td>
-                         <a class="btn btn-success" href="{{ $category->id }} ">Edit</a>
+                         <a class="btn btn-success" href="{{ $category->id }} "><i class="nav-icon fas fa-edit" title="edit"></i> </a>
                           
-                           <a class="btn btn-danger" href="{{ $category->id }}">Delete</a></td>
+                           <a class="btn btn-danger" href="{{ $category->id }}"><i class="nav-icon fas fa-trash" title="delete"></i></a>
+                    
                       </td>
                       
                   </tr>
