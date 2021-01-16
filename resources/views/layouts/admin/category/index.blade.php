@@ -54,11 +54,27 @@
                       <td>{{ $category->name }}</td>
                       <td>{{ $category->name }}</td>
                       <td>
-                         <a class="btn btn-success" href="{{ $category->id }} "><i class="nav-icon fas fa-edit" title="edit"></i> </a>
-                          
-                           <a class="btn btn-danger" href="{{ $category->id }}"><i class="nav-icon fas fa-trash" title="delete"></i></a>
+                         <a class="btn btn-primary" href="{{route('category.edit',$category->id) }}" title="edit">
+                           <i class="nav-icon fas fa-edit"></i></a>
+                           
+                           <form id="delete-form-{{ $category->id }}" method="post" action="{{ route('category.destroy',$category->id) }}" style="display: none">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                              </form>
+
+                        <a href="" class="btn btn-danger" title="delete"
+
+                        onclick="
+                          if(confirm('Are you sure to Delete?")) {
+                          event.preventDefault();
+                          window.getElementById('delete-form-{{ $category->id }}').submit();
+                        }else{
+                        event.preventDefault();
+                      } 
+                      "> <i class="nav-icon fas fa-trash"></i>
+                    </a> 
                     
-                      </td>
+             </td>
                       
                   </tr>
                   @endforeach

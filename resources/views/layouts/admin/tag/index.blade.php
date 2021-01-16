@@ -54,13 +54,27 @@
                       <td>{{ $tag->name }}</td>
                       <td>{{ $tag->slug }}</td>
                       <td> 
-                        <a class="btn btn-success" href="{{ $tag->id }} " title="edit">
-                        <i class="nav-icon fas fa-edit" ></i></a>
-                        
-                         <a class="btn btn-danger" href="{{ $tag->id }}" title="delete">
-                         <i class="nav-icon fas fa-trash" ></i></a></td>
+                         <a class="btn btn-primary" href="{{route('tag.edit',$tag->id) }}" title="edit">
+                           <i class="nav-icon fas fa-edit"></i></a>
+                           
+                           <form id="delete-form-{{ $tag->id }}" method="post" action="{{ route('post.destroy',$tag->id) }}" style="display: none">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                              </form>
 
-                      </td>
+                        <a href="" class="btn btn-danger" title="delete"
+
+                        onclick="
+                          if(confirm('Are you sure to Delete?")) {
+                          event.preventDefault();
+                          window.getElementById('delete-form-{{ $tag->id }}').submit();
+                        }else{
+                        event.preventDefault();
+                      } 
+                      "> <i class="nav-icon fas fa-trash"></i>
+                    </a> 
+
+                  </td>
                   </tr>
                   @endforeach
                   </tbody>

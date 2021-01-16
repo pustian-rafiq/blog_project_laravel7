@@ -9,7 +9,7 @@
  
     <!-- Content Header (Page header) -->
     <section class="content-header">
-       <h1>Update Tag</h1>
+       <h1>Update Category</h1>
       {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Forms</a></li>
@@ -37,24 +37,24 @@
             
           </div>
            <div class="col-md-8">
-               <form role="form" action="{{ route('tag.update',$tag->id) }}" method="post">
+               <form role="form" action="{{ route('category.update',$category->id) }}" method="post">
             @csrf
             @method('PUT')  
               <div class="box-body">
               <div class="col-lg-offset-3 col-lg-6">
                 <div class="form-group">
-                  <label for="tag_title">Tag Name</label>
-                  <input type="text" class="form-control" id="tag_title" name="name" value="{{ $tag->name }}">
+                  <label for="tag_title">Category Name</label>
+                  <input type="text" class="form-control" id="tag_title" name="name" value="{{ $category->name }}">
                 </div>
 
                 <div class="form-group">
-                  <label for="tag_slug">Tag Slug</label>
-                  <input type="text" class="form-control" id="tag_slug" name="slug" value="{{ $tag->slug }}">
+                  <label for="tag_slug">Category Slug</label>
+                  <input type="text" class="form-control" id="tag_slug" name="slug" value="{{ $category->slug }}">
                 </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">Update Tag</button>
-                <a href="{{ route('tag.index') }}" class="btn  btn-warning">Back</a>
+                <button type="submit" class="btn btn-primary">Update Category</button>
+                <a href="{{ route('category.index') }}" class="btn  btn-warning">Back</a>
               </div>
                 
               </div>

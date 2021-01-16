@@ -67,6 +67,8 @@
               </div>
             </div>
           </div>
+          
+          {{-- Check if it is published or not --}}
           <div class="form-check">
             <input type="checkbox" name="status" class="form-check-input" id="status" 
             @if($post->status == 1) checked @endif>
